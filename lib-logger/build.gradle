@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "../common_lib.gradle"
+
+android {
+    namespace 'heven.holt.expand.logger'
+}
+
+group = 'heven.holt.expand'
+archivesBaseName = "logger"

@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = 'android-expand'
 include ':app'
+include ':lib-logger'
