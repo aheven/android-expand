@@ -22,12 +22,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
 
-    dependencies {
-        implementation fileTree(dir: "libs", include: ["*.jar"])
-        api libs.kotlin_stdlib
-        api libs.kotlin_android
-        api libs.android_core_ktx
-        api libs.appcompat
-    }
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    api libs.kotlin_stdlib
+    api libs.kotlin_android
+    api libs.android_core_ktx
+    api libs.appcompat
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
 }
