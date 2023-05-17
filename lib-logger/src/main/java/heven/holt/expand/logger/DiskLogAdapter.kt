@@ -1,10 +1,12 @@
 package heven.holt.expand.logger
 
+import android.content.Context
+
 class DiskLogAdapter : LogAdapter {
     private val formatStrategy: FormatStrategy
 
-    constructor() {
-        formatStrategy = CsvFormatStrategy.newBuilder().build()
+    constructor(context: Context) {
+        formatStrategy = CsvFormatStrategy.newBuilder(context).build()
     }
 
     constructor(formatStrategy: FormatStrategy) {

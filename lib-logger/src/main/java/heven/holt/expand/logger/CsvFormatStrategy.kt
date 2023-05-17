@@ -1,6 +1,6 @@
 package heven.holt.expand.logger
 
-import android.os.Environment
+import android.content.Context
 import android.os.Handler
 import android.os.HandlerThread
 import java.io.File
@@ -18,6 +18,7 @@ class CsvFormatStrategy private constructor(builder: Builder) : FormatStrategy {
     private val dateFormat: SimpleDateFormat
     private val logStrategy: LogStrategy
     private val tag: String?
+
     override fun log(priority: Int, tag: String?, message: String) {
         var message = message
         Utils.checkNotNull(message)
@@ -63,11 +64,12 @@ class CsvFormatStrategy private constructor(builder: Builder) : FormatStrategy {
         } else this.tag
     }
 
-    class Builder {
+    class Builder(private val context: Context) {
         var date: Date? = null
         var dateFormat: SimpleDateFormat? = null
         var logStrategy: LogStrategy? = null
         var tag: String? = "PRETTY_LOGGER"
+        var folder: String? = null
         fun date(`val`: Date?): Builder {
             date = `val`
             return this
@@ -88,6 +90,11 @@ class CsvFormatStrategy private constructor(builder: Builder) : FormatStrategy {
             return this
         }
 
+        fun folder(folder: String?): Builder {
+            this.folder = folder
+            return this
+        }
+
         fun build(): CsvFormatStrategy {
             if (date == null) {
                 date = Date()
@@ -96,7 +103,8 @@ class CsvFormatStrategy private constructor(builder: Builder) : FormatStrategy {
                 dateFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss.SSS", Locale.UK)
             }
             if (logStrategy == null) {
-                val diskPath = Environment.getExternalStorageDirectory().absolutePath
+                val diskPath = context.externalCacheDir?.absolutePath
+                    ?: context.cacheDir.absolutePath
                 val folder = diskPath + File.separatorChar + "logger"
                 val ht = HandlerThread("AndroidFileLogger.$folder")
                 ht.start()
@@ -115,8 +123,8 @@ class CsvFormatStrategy private constructor(builder: Builder) : FormatStrategy {
         private val NEW_LINE = System.getProperty("line.separator")
         private const val NEW_LINE_REPLACEMENT = " <br> "
         private const val SEPARATOR = ","
-        fun newBuilder(): Builder {
-            return Builder()
+        fun newBuilder(context: Context): Builder {
+            return Builder(context)
         }
     }
 

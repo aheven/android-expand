@@ -11,3 +11,7 @@ android {
 
 group = 'heven.holt.expand'
 archivesBaseName = "ktx"
+
+dependencies {
+    implementation 'androidx.startup:startup-runtime:1.1.1'
+}
