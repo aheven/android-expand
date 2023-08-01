@@ -239,10 +239,7 @@ public class SkinCompatManager extends SkinObservable {
 
     /**
      * 获取当前皮肤包.
-     *
-     * @return
      */
-    @Deprecated
     public String getCurSkinName() {
         return SkinPreference.getInstance().getSkinName();
     }

@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
 
     <color name="window_background">#FFFFFFFF</color>
+    <color name="window_background_night">#FF000000</color>
     <color name="text_default">#FF000000</color>
 
 </resources>

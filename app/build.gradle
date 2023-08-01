@@ -14,6 +14,10 @@ android {
         versionName "1.0"
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -27,5 +31,7 @@ android {
         implementation project(':lib-logger')
         implementation project(':lib-ktx')
         implementation project(':lib-skin')
+
+        debugImplementation libs.leadcanary
     }
 }
