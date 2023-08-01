@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "../common_lib.gradle"
+
+android {
+    namespace 'heven.holt.expand.skin'
+}
+
+group = 'heven.holt.expand'
+archivesBaseName = "skin"
+
+dependencies {
+    api project(':lib-skin:skin-support')
+    api project(':lib-skin:skin-support-appcompat')
+}

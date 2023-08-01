@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+    namespace 'heven.holt.expand.demo.night'
+    defaultConfig {
+        applicationId 'heven.holt.expand.demo.night'
+        versionCode 1
+        versionName "1.0"
+    }
+}

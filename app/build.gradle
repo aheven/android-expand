@@ -26,5 +26,6 @@ android {
     dependencies {
         implementation project(':lib-logger')
         implementation project(':lib-ktx')
+        implementation project(':lib-skin')
     }
 }

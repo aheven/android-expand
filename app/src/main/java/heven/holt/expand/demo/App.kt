@@ -4,6 +4,8 @@ import android.app.Application
 import heven.holt.expand.logger.AndroidLogAdapter
 import heven.holt.expand.logger.DiskLogAdapter
 import heven.holt.expand.logger.Logger
+import skin.support.SkinCompatManager
+import skin.support.app.SkinAppCompatViewInflater
 
 class App : Application() {
     override fun onCreate() {
@@ -14,5 +16,9 @@ class App : Application() {
             Logger.addLogAdapter(DiskLogAdapter(this))
         }
         Logger.json(json = "{\"name\":\"HevenHolt\",\"age\":18}")
+
+        SkinCompatManager.withoutActivity(this)
+            .addInflater(SkinAppCompatViewInflater())
+            .loadSkin()
     }
 }
