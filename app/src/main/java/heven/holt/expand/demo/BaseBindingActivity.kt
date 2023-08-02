@@ -1,11 +1,13 @@
 package heven.holt.expand.demo
 
 import android.content.res.Configuration
-import heven.holt.expand.architecture.base.BaseActivity
+import androidx.viewbinding.ViewBinding
+import heven.holt.expand.architecture.base.BaseBindingActivity
 import heven.holt.expand.ktx.applyLightOrNightSkin
 import heven.holt.expand.ktx.onConfigurationChanged
 
-open class BaseActivity : BaseActivity() {
+open class BaseBindingActivity<VB : ViewBinding> : BaseBindingActivity<VB>() {
+
     protected var statusBarStyle: StatusBarDelegate.StatusBarStyle by StatusBarDelegate()
 
     override fun onConfigurationChanged(newConfig: Configuration) {

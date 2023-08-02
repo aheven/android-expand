@@ -18,6 +18,27 @@ android {
         enabled = true
     }
 
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\Admin\\Desktop\\test.jks')  //路径
+            storePassword '123456'
+            keyAlias 'test'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -27,10 +48,13 @@ android {
         jvmTarget = '17'
     }
 
+    lintOptions {
+        disable "Instantiatable"
+    }
+
     dependencies {
+        implementation project(':lib-architecture')
         implementation project(':lib-logger')
-        implementation project(':lib-ktx')
-        implementation project(':lib-skin')
 
         debugImplementation libs.leadcanary
     }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin.support.widget.SkinCompatRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@color/text_default" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_default" />
+
+</skin.support.widget.SkinCompatRelativeLayout>

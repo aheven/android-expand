@@ -1,9 +1,9 @@
 package heven.holt.expand.demo
 
+import android.app.Activity
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.WindowCompat
-import skin.support.SkinCompatManager
 import kotlin.reflect.KProperty
 
 /**
@@ -21,14 +21,14 @@ class StatusBarDelegate {
     private var rootView: View? = null
 
     operator fun getValue(
-        baseActivity: BaseActivity,
+        baseActivity: Activity,
         property: KProperty<*>
     ): StatusBarStyle {
         return style
     }
 
     operator fun setValue(
-        baseActivity: BaseActivity,
+        baseActivity: Activity,
         property: KProperty<*>,
         statusBarStyle: StatusBarStyle
     ) {

@@ -19,14 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
-
-#ViewBindingKtx混淆规则
--keep class * implements androidx.viewbinding.ViewBinding {*;}
-
--keepclassmembers class * implements androidx.viewbinding.ViewBinding {
-public static ** bind(***);
-public static ** inflate(...);
-}
-
--keep,allowobfuscation,allowshrinking class heven.holt.expand.demo.BaseBindingActivity

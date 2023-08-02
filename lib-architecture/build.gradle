@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "../common_lib.gradle"
+
+android {
+    namespace 'heven.holt.expand.architecture'
+}
+
+dependencies {
+    api project(':lib-ktx')
+    api project(':lib-skin')
+    api libs.viewbinding_base
+    api libs.viewbinding_ktx
+    api libs.loading_state_view
+}
+
+group = 'heven.holt.expand'
+archivesBaseName = "architecture"
