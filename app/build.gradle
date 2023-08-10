@@ -51,11 +51,13 @@ android {
     lintOptions {
         disable "Instantiatable"
     }
+}
 
-    dependencies {
-        implementation project(':lib-architecture')
-        implementation project(':lib-logger')
+dependencies {
+    implementation project(':lib-architecture')
+    implementation project(':lib-logger')
 
-        debugImplementation libs.leadcanary
-    }
+    debugImplementation libs.material
+    debugImplementation libs.leadcanary
+
 }

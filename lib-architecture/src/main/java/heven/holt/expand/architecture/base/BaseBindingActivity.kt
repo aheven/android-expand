@@ -2,12 +2,11 @@ package heven.holt.expand.architecture.base
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
-import com.dylanc.loadingstateview.Decorative
-import com.dylanc.loadingstateview.LoadingState
-import com.dylanc.loadingstateview.LoadingStateDelegate
-import com.dylanc.loadingstateview.OnReloadListener
 import com.dylanc.viewbinding.base.ActivityBinding
 import com.dylanc.viewbinding.base.ActivityBindingDelegate
+import heven.holt.expand.architecture.title.Decorative
+import heven.holt.expand.architecture.title.HeaderState
+import heven.holt.expand.architecture.title.HeaderStateDelegate
 
 /**
  * <pre>
@@ -19,7 +18,7 @@ import com.dylanc.viewbinding.base.ActivityBindingDelegate
  * </pre>
  */
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
-    LoadingState by LoadingStateDelegate(), OnReloadListener, Decorative,
+    HeaderState by HeaderStateDelegate(), Decorative,
     ActivityBinding<VB> by ActivityBindingDelegate() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

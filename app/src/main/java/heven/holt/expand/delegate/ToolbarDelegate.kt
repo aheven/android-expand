@@ -1,10 +1,10 @@
-package heven.holt.expand.demo
+package heven.holt.expand.delegate
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dylanc.loadingstateview.BaseToolbarViewDelegate
-import com.dylanc.loadingstateview.ToolbarConfig
+import heven.holt.expand.architecture.title.BaseToolbarViewDelegate
+import heven.holt.expand.architecture.title.ToolbarConfig
 import heven.holt.expand.widget.CustomToolbar
 
 /**

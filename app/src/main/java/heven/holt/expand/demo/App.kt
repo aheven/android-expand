@@ -1,7 +1,8 @@
 package heven.holt.expand.demo
 
 import android.app.Application
-import com.dylanc.loadingstateview.LoadingStateView
+import heven.holt.expand.architecture.title.HeaderStateView
+import heven.holt.expand.delegate.ToolbarDelegate
 import heven.holt.expand.logger.AndroidLogAdapter
 import heven.holt.expand.logger.DiskLogAdapter
 import heven.holt.expand.logger.Logger
@@ -22,7 +23,7 @@ class App : Application() {
             .addInflater(SkinAppCompatViewInflater())
             .loadSkin()
 
-        LoadingStateView.setViewDelegatePool {
+        HeaderStateView.setViewDelegatePool {
             register(ToolbarDelegate())
         }
     }

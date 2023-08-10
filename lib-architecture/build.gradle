@@ -14,7 +14,7 @@ dependencies {
     api project(':lib-skin')
     api libs.viewbinding_base
     api libs.viewbinding_ktx
-    api libs.loading_state_view
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
 
 group = 'heven.holt.expand'

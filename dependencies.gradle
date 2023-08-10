@@ -5,12 +5,12 @@ ext.versions = [
 ]
 
 ext.libs = [
-        kotlin_stdlib     : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-        kotlin_android    : "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$kotlin_version",
-        android_core_ktx  : "androidx.core:core-ktx:1.10.0",
-        appcompat         : 'androidx.appcompat:appcompat:1.6.1',
-        leadcanary        : 'com.squareup.leakcanary:leakcanary-android:2.12',
-        viewbinding_base  : 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0',
-        viewbinding_ktx   : 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0',
-        loading_state_view: 'com.github.DylanCaiCoding.LoadingStateView:loadingstateview-ktx:4.1.0'
+        kotlin_stdlib   : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+        kotlin_android  : "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$kotlin_version",
+        android_core_ktx: "androidx.core:core-ktx:1.10.0",
+        appcompat       : 'androidx.appcompat:appcompat:1.6.1',
+        material            : 'com.google.android.material:material:1.9.0',
+        leadcanary      : 'com.squareup.leakcanary:leakcanary-android:2.12',
+        viewbinding_base: 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0',
+        viewbinding_ktx : 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0',
 ]
