@@ -2,9 +2,13 @@ package heven.holt.expand.ktx
 
 import android.app.Activity
 import android.content.Intent
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.LifecycleOwner
 import java.util.LinkedList
 
@@ -75,6 +79,20 @@ fun finishAllActivitiesExceptNewest(): Boolean =
     finishAllActivitiesExcept(topActivity.javaClass)
 
 fun ComponentActivity.pressBackTwiceToExitApp(
+    toastText: String,
+    delayMillis: Long = 2000,
+    owner: LifecycleOwner = this
+) =
+    pressBackTwiceToExitApp(delayMillis, owner) { toast(toastText) }
+
+fun ComponentActivity.pressBackTwiceToExitApp(
+    @StringRes toastText: Int,
+    delayMillis: Long = 2000,
+    owner: LifecycleOwner = this
+) =
+    pressBackTwiceToExitApp(delayMillis, owner) { toast(toastText) }
+
+fun ComponentActivity.pressBackTwiceToExitApp(
     delayMillis: Long = 2000,
     owner: LifecycleOwner = this,
     onFirstBackPressed: () -> Unit
@@ -91,3 +109,19 @@ fun ComponentActivity.pressBackTwiceToExitApp(
         }
     }
 })
+
+fun ComponentActivity.pressBackToNotExitApp(owner: LifecycleOwner = this) =
+    doOnBackPressed(owner) { moveTaskToBack(false) }
+
+fun ComponentActivity.doOnBackPressed(owner: LifecycleOwner = this, onBackPressed: () -> Unit) =
+    onBackPressedDispatcher.addCallback(owner, object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() = onBackPressed()
+    })
+
+var Activity.decorFitsSystemWindows: Boolean
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR)
+    get() = noGetter()
+    set(value) = WindowCompat.setDecorFitsSystemWindows(window, value)
+
+inline val Activity.contentView: View
+    get() = (findViewById<ViewGroup>(android.R.id.content)).getChildAt(0)

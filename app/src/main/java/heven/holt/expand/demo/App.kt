@@ -3,6 +3,7 @@ package heven.holt.expand.demo
 import android.app.Application
 import heven.holt.expand.architecture.title.HeaderStateView
 import heven.holt.expand.delegate.ToolbarDelegate
+import heven.holt.expand.ktx.fileProviderAuthority
 import heven.holt.expand.logger.AndroidLogAdapter
 import heven.holt.expand.logger.DiskLogAdapter
 import heven.holt.expand.logger.Logger
@@ -18,6 +19,8 @@ class App : Application() {
             Logger.addLogAdapter(DiskLogAdapter(this))
         }
         Logger.json(json = "{\"name\":\"HevenHolt\",\"age\":18}")
+
+        fileProviderAuthority = "$packageName.fileProvider"
 
         SkinCompatManager.withoutActivity(this)
             .addInflater(SkinAppCompatViewInflater())
